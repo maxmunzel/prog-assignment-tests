@@ -30,7 +30,7 @@ public class Terminal {
      *   with ANSI color support, the windows command
      *   prompt e.g. does _not_ support this.
      */
-    private static boolean CONF_DISABLE_COLORS = false;
+    private static boolean CONF_DISABLE_COLORS = true;
 
     // ############ CONFIGURATION END ############
     // Do not change anything below this line!
