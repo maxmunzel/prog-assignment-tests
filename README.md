@@ -36,7 +36,13 @@ Configuration options:
 All tests are copied and therefore equal to [DeerMichel/kit-assignment-tests/5-Campus Management](https://github.com/DeerMichel/kit-assignment-tests/tree/master/5-Campus%20Management).
 
 ## Final 01
-_Final 1 not released yet_
+1. Download and replace the original Terminal.java with [final01/Terminal.java](https://github.com/luk3b/prog-assignment-tests/tree/master/final01/Terminal.java)
+2. Execute your main class
+3. Take a glimpse at your console/terminal
+
+Configuration options:
+- Enable colors for ANSI-color compatible Terminals: Open `Terminal.java` and set `CONF_DISABLE_COLORS` to `false`.
+- Hide statistics at the end (total tests, pass rate, ..): Open `Terminal.java` and set `CONF_HIDE_STATS` to `true`.
 
 ## Final 02
 _Final 2 not released yet_
