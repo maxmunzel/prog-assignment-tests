@@ -196,7 +196,7 @@ public class Terminal {
                 "Ok" // all characters other than ; and , allowed for publisher
               });
         tests.put("add journal TSE,NOTIEEE", new String[] {
-                "Error,"
+                "Error," // already exists
               });
         tests.put("add journal EFG,IEEE,", new String[] {
                 "Error,"
@@ -246,7 +246,7 @@ public class Terminal {
                 "Error,"
               });
         tests.put("add conference ICSA,2018,_Muenchen", new String[] {
-                "Error,"
+                "Ok"
               });
         tests.put("add conference ICSA,2019,Muenchen,", new String[] {
                 "Error,"
@@ -323,9 +323,6 @@ public class Terminal {
               });
         tests.put("written-by mvp2016,Richard Rhinelander;Shashi Afolabi", new String[] {
                 "Ok"
-              });
-        tests.put("written-by rr2017,Test Author", new String[] {
-                "Error,"
               });
         tests.put("written-by rr2017,Test Author", new String[] {
                 "Error,"
@@ -485,7 +482,7 @@ public class Terminal {
         tests.put("in proceedings uksa,2016", new String[] {
                 "Error,"
         });
-        tests.put("in proceedings ICSA,2018", new String[] {
+        tests.put("in proceedings ICSA,2020", new String[] {
                 "Error,"
         });
         
@@ -548,6 +545,18 @@ public class Terminal {
         });
         tests.put("direct h-index 100;100;9;8;3;2;2;1;1", new String[] {
                 "4"
+        });
+        tests.put("direct h-index 1;6;3;8;3;7;4;8;5", new String[] {
+                "5"
+        });
+        tests.put("direct h-index 4543;765;3465;743;9853;34243;4543;2321;5436;9978", new String[] {
+                "10"
+        });
+        tests.put("direct h-index 1;2;3;4;5;6;7;8;9;10;11;12;13;14;15", new String[] {
+                "8"
+        });
+        tests.put("direct h-index 8;7;6;5;4;3;2;1;9;10;11;12;13;14;15", new String[] {
+                "8"
         });
         
         // h-index
@@ -612,15 +621,22 @@ public class Terminal {
                 "Error,"
         });
         tests.put("print bibliography ieee:rr2017", new String[] {
-                "[1] S. Afolabi, \"Model Consistency,\" TSE, 2015."
+                "[1] R. Rhinelander et al., \"Components still have no interfaces,\" in Proceedings of ICSA, "
+                + "Gothenburg, 2017."
         });
         tests.put("print bibliography ieee:p1;p2;p3;rr2017", new String[] {
-                "[1] S. Afolabi, \"Model Consistency,\" TSE, 2015.",
-                "[2] A. a, \"Title,\" TSE, 2012."
-        }); // note: 'A' is ordered before 'a'
+                "[1] R. Rhinelander et al., \"Components still have no interfaces,\""
+                + " in Proceedings of ICSA, Gothenburg, 2017.",
+                "[2] A. a and B. b, \"Title,\" TSE, 2013.",
+                "[3] B. b and C. c, \"Title,\" TSE, 2014.",
+                "[4] C. c and D. d, \"Title,\" TSE, 2015."
+        });
         tests.put("print bibliography chicago:p1;p2;p3;rr2017", new String[] {
-                "(Afolabi, 2015) Afolabi, Shashi. \"Model Consistency.\" TSE (2015).",
-                "(a, 2012) a, a. \"Title.\" TSE (2012)."
+                "(Rhinelander, 2017) Rhinelander, Richard, Lowry, Eniola, and Lowry, eniola. \"Components still have "
+                + "no interfaces.\" Paper presented at ICSA, 2017, Gothenburg.",
+                "(a, 2013) a, a, and b, b. \"Title.\" TSE (2013).",
+                "(b, 2014) b, b, and c, c. \"Title.\" TSE (2014).",
+                "(c, 2015) c, c, and d, d. \"Title.\" TSE (2015)."
         });
 
         cmds = tests.keySet().toArray();
