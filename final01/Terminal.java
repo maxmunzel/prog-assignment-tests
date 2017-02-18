@@ -660,10 +660,16 @@ public class Terminal {
         // check for missing lines
         if (i >= 0) {            
             String[] out = (String[]) outp[i];
-            for (int i = o.size(); i < out.length; i++) {
-                sysPrintError("Missing line");
+            if (o.size() != out.length) {
+                for (int i = 0; i < out.length; i++) {
+                    if (!o.contains(out[i])) {
+                        o.add(out[i]);
+                        sysPrintError("Missing line ('" + out[i] + "')");
+                        
+                    }
+                }
                 pass = false;
-            }
+            }   
         }
 
         if (pass)
