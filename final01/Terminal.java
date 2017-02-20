@@ -710,7 +710,7 @@ public class Terminal {
      * @param str Line to print
      */
     public static void printLine(String str) {
-        if (!init)
+        if (!init || i >= outp.length)
             return;
 
         String[] out = (String[]) outp[i];
