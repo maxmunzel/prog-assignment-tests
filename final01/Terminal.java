@@ -775,7 +775,7 @@ public class Terminal {
      * @param i The error to print
      */
     public static void printError(int i) {
-        printError(i);
+        printError(i + "");
     }
     
     /**
